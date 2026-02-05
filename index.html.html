@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Catálogo RS Simulados</title>
+
+<style>
+body{
+  font-family: Arial;
+  background:#f4f6f8;
+  padding:20px;
+}
+.card{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  max-width:500px;
+  margin:auto;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+.produto{
+  border-bottom:1px solid #eee;
+  padding:10px 0;
+}
+button{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:10px;
+  background:#25D366;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  margin-top:20px;
+  cursor:pointer;
+}
+h1{text-align:center;}
+.logo{
+  display:block;
+  margin:auto;
+  width:200px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<img src="logo.jpg" class="logo">
+
+<h1>Catálogo RS Simulados e Concursos</h1>
+
+<div class="produto">
+<input type="checkbox" value="Plano de estudo baseados no meu edital - R$17,90">
+<b>Plano de estudos baseado no meu edital</b><br>
+R$17,90
+</div>
+
+<div class="produto">
+<input type="checkbox" value="Simulado Guarda Municipal - R$9,90">
+<b>Simulado Guarda Municipal</b><br>
+R$9,90
+</div>
+
+<div class="produto">
+<input type="checkbox" value="+220 Questões Motorista - R$24,90">
+<b>+220 Questões Motorista</b><br>
+R$24,90
+</div>
+
+<div class="produto">
+<input type="checkbox" value="APOSTILA COMPLETA GCM SOBRAL - R$33,90">
+<b>APOSTILA COMPLETA GCM SOBRAL</b><br>
+R$33,90
+</div>
+
+<button onclick="enviarPedido()">FINALIZAR PEDIDO NO WHATSAPP</button>
+
+</div>
+
+<script>
+function enviarPedido(){
+  let selecionados = document.querySelectorAll('input:checked');
+
+  if(selecionados.length == 0){
+    alert("Selecione pelo menos 1 produto");
+    return;
+  }
+
+  let mensagem = "Olá Romário, tenho interesse em:\\n\\n";
+
+  selecionados.forEach((item)=>{
+    mensagem += "• " + item.value + "\\n";
+  });
+
+  let telefone = "5585999564288";
+  let url = "https://wa.me/"+telefone+"?text="+encodeURIComponent(mensagem);
+
+  window.open(url);
+}
+</script>
+
+</body>
+</html>
